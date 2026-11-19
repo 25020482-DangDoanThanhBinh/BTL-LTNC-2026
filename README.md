@@ -1,4 +1,4 @@
 # BTL-LTNC-2026
 Bài tập lớn Lập trình nâng cao-Nhóm 3
 ## Sơ đồ lớp (Class Diagram)
-![Class Diagram](docs/class-diagram.sgv)
+![Class Diagram](docs/class-diagram.svg)
