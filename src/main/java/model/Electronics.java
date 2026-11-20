@@ -1,5 +1,6 @@
 package model;
 public class Electronics extends Item{
+    private static final long serialVersionUID=1L;
     private String brand;
     private int warrantyMonths;
     public Electronics(String itemId,String name,String description,double startingPrice,String sellerId,String brand,int warrantyMonths){

@@ -1,5 +1,6 @@
 package model;
 public class Art extends Item{
+    private static final long serialVersionUID=1L;
     private String artist;
     private int yearCreated;
     public Art(String itemId,String name,String description,double startingPrice,String sellerId,String artist,int yearCreated){

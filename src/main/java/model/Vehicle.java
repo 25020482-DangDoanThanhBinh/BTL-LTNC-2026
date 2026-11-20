@@ -1,5 +1,6 @@
 package model;
 public class Vehicle extends Item{
+    private static final long serialVersionUID=1L;
     private String manufacturer;
     private double mileage;
     public Vehicle(String itemId,String name,String description,double startingPrice,String sellerId,String manufacturer,double mileage){

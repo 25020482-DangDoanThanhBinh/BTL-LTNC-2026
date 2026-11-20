@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 public class Bidder extends User{
+    private static final long serialVersionUID=1L;
     private double balance;
     private List<Bid> bidHistory;
     public Bidder(String userId,String username,String password,String email,double balance){

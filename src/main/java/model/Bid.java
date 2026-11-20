@@ -2,6 +2,7 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 public class Bid implements Serializable,Comparable<Bid>{
+    private static final long serialVersionUID=1L;
     private String bidId;
     private String auctionId;
     private Bidder bidder;

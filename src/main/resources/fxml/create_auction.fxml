@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.CreateAuctionController" spacing="8" style="-fx-background-color: white;">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    <Label text="Tao phien dau gia moi" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+    <Label text="Loai san pham"/>
+    <ComboBox fx:id="typeBox" maxWidth="Infinity"/>
+    <Label text="Ten san pham"/>
+    <TextField fx:id="nameField" promptText="Nhap ten san pham"/>
+    <Label text="Mo ta"/>
+    <TextField fx:id="descField" promptText="Mo ta ngan gon"/>
+    <Label text="Gia khoi diem (VND)"/>
+    <TextField fx:id="startPriceField" promptText="Vi du: 10000000"/>
+    <Label text="Buoc gia (VND)"/>
+    <TextField fx:id="incrementField" promptText="Vi du: 500000"/>
+    <Label text="Thoi luong (gio)"/>
+    <TextField fx:id="durationHoursField" promptText="Vi du: 2"/>
+    <Label fx:id="attr1Label" text="Hang san xuat"/>
+    <TextField fx:id="attr1Field"/>
+    <Label fx:id="attr2Label" text="Bao hanh (so thang)"/>
+    <TextField fx:id="attr2Field"/>
+    <Label fx:id="errorLabel" wrapText="true" style="-fx-text-fill: #dc2626; -fx-font-size: 12px;"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Huy" onAction="#handleCancel"/>
+        <Button text="Tao phien" onAction="#handleCreate" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+</VBox>

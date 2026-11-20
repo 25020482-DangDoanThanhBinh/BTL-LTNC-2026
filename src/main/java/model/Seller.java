@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 public class Seller extends User{
+    private static final long serialVersionUID=1L;
     private List<Item> items;
     private List<Auction> createdAuctions;
     public Seller(String userId,String username,String password,String email){

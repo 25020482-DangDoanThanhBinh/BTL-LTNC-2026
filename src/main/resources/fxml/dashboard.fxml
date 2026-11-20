@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.DashboardController" style="-fx-background-color: #f8fafc;">
+    <top>
+        <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-background-color: #0f172a;">
+            <padding>
+                <Insets top="14" right="20" bottom="14" left="20"/>
+            </padding>
+            <Label text="AUCTION PRO" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userInfoLabel" style="-fx-text-fill: #e2e8f0; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+            <Button fx:id="createAuctionBtn" text="+ Tao phien" onAction="#handleOpenCreateAuction" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button text="Dang xuat" onAction="#handleLogout" style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="18" right="18" bottom="18" left="18"/>
+            </padding>
+            <Label text="Danh sach phien dau gia" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <TableView fx:id="auctionTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idCol" text="Ma phien" maxWidth="110"/>
+                    <TableColumn fx:id="itemCol" text="San pham"/>
+                    <TableColumn fx:id="categoryCol" text="Danh muc" maxWidth="120"/>
+                    <TableColumn fx:id="priceCol" text="Gia hien tai"/>
+                    <TableColumn fx:id="bidderCol" text="Nguoi dan dau"/>
+                    <TableColumn fx:id="statusCol" text="Trang thai" maxWidth="110"/>
+                </columns>
+            </TableView>
+            <HBox fx:id="manageBar" spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="startBtn" text="Bat dau (RUNNING)" onAction="#handleStartAuction" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button fx:id="finishBtn" text="Ket thuc (FINISHED)" onAction="#handleFinishAuction" style="-fx-background-color: #475569; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button fx:id="payBtn" text="Thanh toan (PAID)" onAction="#handleMarkPaid" style="-fx-background-color: #7e22ce; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button fx:id="cancelBtn" text="Huy phien (CANCELED)" onAction="#handleCancelAuction" style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </center>
+    <right>
+        <VBox spacing="10" prefWidth="340" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-width: 0 0 0 1;">
+            <padding>
+                <Insets top="18" right="18" bottom="18" left="18"/>
+            </padding>
+            <Label fx:id="detailTitleLabel" wrapText="true" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+            <Label fx:id="itemDetailLabel" wrapText="true" style="-fx-text-fill: #334155; -fx-font-size: 12px;"/>
+            <Label fx:id="shippingLabel" wrapText="true" style="-fx-text-fill: #64748b; -fx-font-size: 12px;"/>
+            <Label fx:id="minBidLabel" wrapText="true" style="-fx-text-fill: #1d4ed8; -fx-font-weight: bold; -fx-font-size: 12px;"/>
+            <Separator/>
+            <TextField fx:id="bidAmountField" promptText="Nhap so tien dat gia (VND)"/>
+            <Button fx:id="placeBidBtn" text="Xac nhan dat gia" maxWidth="Infinity" onAction="#handlePlaceBid" style="-fx-background-color: #16a34a; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 9;"/>
+            <Button fx:id="quickBidBtn" text="+1 buoc gia toi thieu" maxWidth="Infinity" onAction="#handleQuickBid" style="-fx-background-color: #e2e8f0; -fx-text-fill: #1e293b; -fx-font-weight: bold; -fx-padding: 8;"/>
+            <Label fx:id="feedbackLabel" wrapText="true" style="-fx-font-size: 12px;"/>
+            <Separator/>
+            <Label text="Nhat ky Observer (Realtime)" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <TextArea fx:id="logArea" editable="false" wrapText="true" VBox.vgrow="ALWAYS" style="-fx-font-family: 'Monospaced'; -fx-font-size: 11px;"/>
+        </VBox>
+    </right>
+</BorderPane>
