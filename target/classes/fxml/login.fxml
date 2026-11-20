@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.LoginController" style="-fx-background-color: #f1f5f9;">
+    <padding>
+        <Insets top="24" right="24" bottom="24" left="24"/>
+    </padding>
+    <VBox spacing="12" alignment="CENTER" maxWidth="420" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0, 0, 4);">
+        <padding>
+            <Insets top="24" right="24" bottom="24" left="24"/>
+        </padding>
+        <Label text="AUCTION PRO - MVC" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+        <Label text="He thong dau gia truc tuyen (Tuan 8 - FXML + MVC)" style="-fx-font-size: 12px; -fx-text-fill: #64748b;"/>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Dang nhap">
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="16" right="4" bottom="8" left="4"/>
+                    </padding>
+                    <TextField fx:id="usernameField" promptText="Ten dang nhap (nguoimua1 / nguoiban / admin)" onAction="#handleLogin"/>
+                    <PasswordField fx:id="passwordField" promptText="Mat khau (mac dinh: 1234)" onAction="#handleLogin"/>
+                    <Button text="Dang nhap" maxWidth="Infinity" onAction="#handleLogin" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10;"/>
+                    <Label fx:id="errorLabel" wrapText="true" style="-fx-text-fill: #dc2626; -fx-font-size: 12px;"/>
+                    <Separator/>
+                    <Label text="Tai khoan mau: nguoimua1 / 1234 | nguoiban / 1234 | admin / 1234" wrapText="true" style="-fx-text-fill: #475569; -fx-font-size: 11px;"/>
+                </VBox>
+            </Tab>
+            <Tab text="Dang ky">
+                <VBox spacing="8">
+                    <padding>
+                        <Insets top="14" right="4" bottom="8" left="4"/>
+                    </padding>
+                    <TextField fx:id="regUsernameField" promptText="Ten dang nhap moi"/>
+                    <PasswordField fx:id="regPasswordField" promptText="Mat khau (>= 4 ky tu)"/>
+                    <TextField fx:id="regEmailField" promptText="Email (vd: user@gmail.com)"/>
+                    <ComboBox fx:id="regRoleBox" maxWidth="Infinity"/>
+                    <TextField fx:id="regBalanceField" promptText="So du ban dau (VND)"/>
+                    <Button text="Tao tai khoan" maxWidth="Infinity" onAction="#handleRegister" style="-fx-background-color: #16a34a; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 9;"/>
+                    <Label fx:id="regMessageLabel" wrapText="true"/>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </VBox>
+</StackPane>
