@@ -20,6 +20,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Auction;
 import model.AuctionStatus;
 import model.Bidder;
@@ -227,6 +232,14 @@ public class DashboardController implements AuctionObserver{
             }
         });
         auctionTable.getSelectionModel().selectedItemProperty().addListener((obs,oldVal,selected)->updateSelectedDetails(selected));
+        auctionTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                Auction selected = auctionTable.getSelectionModel().getSelectedItem();
+                if (selected != null) {
+                    openItemDetailModal(selected);
+                }
+            }
+        });
     }
     private void reloadAuctions(){
         Auction prev=auctionTable.getSelectionModel().getSelectedItem();
@@ -438,5 +451,21 @@ public class DashboardController implements AuctionObserver{
             logArea.appendText(msg+"\n");
             auctionTable.refresh();
         });
+    }
+    private void openItemDetailModal(Auction auction) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/item_detail.fxml"));
+            Parent root = loader.load();
+            ItemDetailController controller = loader.getController();
+            controller.setAuction(auction);
+
+            Stage modal = new Stage();
+            modal.setTitle("Chi tiet san pham - " + auction.getAuctionId());
+            modal.initModality(Modality.APPLICATION_MODAL);
+            modal.setScene(new Scene(root));
+            modal.showAndWait();
+        } catch (IOException e) {
+            showError("Khong mo duoc chi tiet san pham: " + e.getMessage());
+        }
     }
 }
