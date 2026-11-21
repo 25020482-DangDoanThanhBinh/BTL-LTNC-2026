@@ -66,9 +66,8 @@
                 </dependencies>
                 <configuration>
                     <configLocation>config/checkstyle.xml</configLocation>
-                    <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
-                    <failsOnViolation>true</failsOnViolation>
+                    <failOnViolation>true</failOnViolation>
                     <violationSeverity>error</violationSeverity>
                 </configuration>
             </plugin>
