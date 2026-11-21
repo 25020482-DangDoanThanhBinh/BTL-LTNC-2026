@@ -1,8 +1,11 @@
 package dao;
-import java.util.ArrayList;
-import java.util.List;
+
 import manager.AuctionManager;
 import model.Auction;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class InMemoryAuctionDao implements AuctionDao{
     private final List<Auction> auctions;
     public InMemoryAuctionDao(){
@@ -10,6 +13,29 @@ public class InMemoryAuctionDao implements AuctionDao{
     }
     public InMemoryAuctionDao(List<Auction> auctions){
         this.auctions=auctions;
+    }
+    @Override
+    public void update(Auction auction){
+        if(auction==null){
+            return;
+        }
+        synchronized(auctions){
+            for(int i=0;i<auctions.size();i++){
+                if(auctions.get(i).getAuctionId().equals(auction.getAuctionId())){
+                    auctions.set(i,auction);
+                    return;
+                }
+            }
+        }
+    }
+    @Override
+    public void delete(String auctionId){
+        if(auctionId==null){
+            return;
+        }
+        synchronized(auctions){
+            auctions.removeIf(a->a.getAuctionId().equals(auctionId));
+        }
     }
     @Override
     public void save(Auction auction){
