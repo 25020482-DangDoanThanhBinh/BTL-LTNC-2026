@@ -18,6 +18,29 @@ public class InMemoryUserDao implements UserDao{
         }
     }
     @Override
+    public void update(User user){
+        if(user==null){
+            return;
+        }
+        synchronized(users){
+            for(int i=0;i<users.size();i++){
+                if(users.get(i).getUserId().equals(user.getUserId())){
+                    users.set(i,user);
+                    return;
+                }
+            }
+        }
+    }
+    @Override
+    public void delete(String userId){
+        if(userId==null){
+            return;
+        }
+        synchronized(users){
+            users.removeIf(u->u.getUserId().equals(userId));
+        }
+    }
+    @Override
     public User findByUsername(String username){
         if(username==null){
             return null;
